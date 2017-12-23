@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p>Click "Try It". The page will start a beeping noise.</p>
+
+    <button onclick="myFunction(120);">Try it</button>
+
+    <script>
+        var Started = false;
+        var audio = new Audio('audio_stuff/beep-07.wav');
+        var audio2 = new Audio('audio_stuff/Whoosh.WAV');
+        var counter = 0
+        var measure = 1
+        function OurBeeps() {
+            if (counter === 0) {
+                audio2.play();
+            } else {
+                audio.play();
+            }
+            counter = counter + 1
+            console.log("Beep", new Date(), "Measure:", measure, "Beat:", counter);
+            if (counter === 4) {
+                counter = 0
+                measure = measure + 1
+            }
+        }
+        function myFunction(BPM) {
+            if (Started === false) {
+                Started = true;
+                var t = 60 / BPM * 1000
+                setInterval(OurBeeps, t);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
