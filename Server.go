@@ -7,6 +7,6 @@ import (
 
 func main() {
 	log.Println("Starting Metronome Server")
-	panic(http.ListenAndServe(":8080", http.FileServer(http.Dir("."))))
+	panic(http.ListenAndServe(":80", http.FileServer(http.Dir("."))))
 
 }
